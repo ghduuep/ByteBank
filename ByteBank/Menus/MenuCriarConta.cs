@@ -35,9 +35,7 @@ internal class MenuCriarConta : Menu
                 Console.WriteLine("Opção inválida. Dê início ao processo de abertura de conta novamente!");
                 return;
         }
-       
-        Console.WriteLine("Digite qualquer tecla para voltar ao menu.");
-        Console.ReadKey();
-        Console.Clear();
+
+        MenuRodape();
     }
 }

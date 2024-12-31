@@ -1,46 +1,16 @@
 ﻿using ByteBank.Menus;
 using ByteBank.Modelos;
+using ByteBank.Modelos.Contas;
 
-Banco banco = new();
-
-void ExibirLogo()
+Banco banco = new Banco();
+MenuPrincipal menuPrincipal = new MenuPrincipal();
+try
 {
-    Console.WriteLine(@"
-██████╗░██╗░░░██╗████████╗███████╗██████╗░░█████╗░███╗░░██╗██╗░░██╗
-██╔══██╗╚██╗░██╔╝╚══██╔══╝██╔════╝██╔══██╗██╔══██╗████╗░██║██║░██╔╝
-██████╦╝░╚████╔╝░░░░██║░░░█████╗░░██████╦╝███████║██╔██╗██║█████═╝░
-██╔══██╗░░╚██╔╝░░░░░██║░░░██╔══╝░░██╔══██╗██╔══██║██║╚████║██╔═██╗░
-██████╦╝░░░██║░░░░░░██║░░░███████╗██████╦╝██║░░██║██║░╚███║██║░╚██╗
-╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝");
-    Console.WriteLine("Boas-vindas ao ByteBank, a sua solução financeira!");
-}
-
-void ExibirOpcoesMenu()
+    menuPrincipal.Executar(banco);
+} catch(Exception e)
 {
-    ExibirLogo();
-    Console.WriteLine("\n1 - Criar conta");
-    Console.WriteLine("2 - Realizar saque");
-    Console.WriteLine("3 - Realizar depósito");
-    Console.WriteLine("4 - Realizar transferência");
-    Console.WriteLine("5 - Gerar rendimento");
-    Console.WriteLine("6 - Exibir contas");
-    Console.WriteLine("\n0 - Sair");
-
-    Console.Write("Digite a sua opção:");
-    int opcao = int.Parse(Console.ReadLine()!);
-    switch (opcao)
-    {
-        case 1:
-            new MenuCriarConta().Executar(banco);
-            ExibirOpcoesMenu();
-            break;
-        case 6:
-            new MenuListarContas().Executar(banco);
-            break;
-        default:
-            Console.WriteLine("Opção inválida!");
-            break;
-    }
-}
-
-ExibirOpcoesMenu();
+    Console.WriteLine(e.Message);
+    Console.WriteLine("Voltando para o menu principal...");
+    Thread.Sleep(2000);
+    menuPrincipal.Executar(banco);
+} 

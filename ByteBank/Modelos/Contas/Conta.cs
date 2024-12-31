@@ -23,7 +23,7 @@ internal class Conta
         }
         if (valor > Saldo)
         {
-            throw new SaldoInsuficienteException(Saldo, valor);
+            throw new SaldoInsuficienteExceptionException(Saldo, valor);
         }
         Saldo -= valor;
         Console.WriteLine($"Valor de R${valor} debitado de sua conta.");
@@ -46,7 +46,7 @@ internal class Conta
         }
         if (valor > Saldo)
         {
-            throw new SaldoInsuficienteException(Saldo, valor);
+            throw new SaldoInsuficienteExceptionException(Saldo, valor);
         }
         Sacar(valor);
         contaDestino.Depositar(valor);

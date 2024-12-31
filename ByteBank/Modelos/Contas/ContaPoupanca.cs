@@ -20,7 +20,7 @@ internal class ContaPoupanca : Conta
     {
         if (numeroDeSaques >= limiteSaques)
         {
-            throw new LimiteDeSaquesAlcancado();
+            throw new LimiteDeSaquesAlcancadoException();
         }
         base.Sacar(valor);
         numeroDeSaques++;

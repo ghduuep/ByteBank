@@ -8,5 +8,6 @@ internal class MenuListarContas : Menu
         base.Executar(banco);
         ExibirTituloDaOpcao("Contas registradas");
         banco.ExibirContasCadastradas();
+        MenuRodape();
     }
 }
