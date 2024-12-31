@@ -1,6 +1,5 @@
 ﻿using ByteBank.Menus;
 using ByteBank.Modelos;
-using ByteBank.Modelos.Contas;
 
 Banco banco = new Banco();
 MenuPrincipal menuPrincipal = new MenuPrincipal();
