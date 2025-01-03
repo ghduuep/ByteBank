@@ -1,7 +1,7 @@
 ﻿using ByteBank.Exceptions;
 
 namespace ByteBank.Modelos;
-internal class Conta
+internal class Conta : IComparable<Conta>
 {
     public Conta(Titular titular, int agencia, int numero)
     {
@@ -50,5 +50,14 @@ internal class Conta
         }
         Sacar(valor);
         contaDestino.Depositar(valor);
+    }
+
+    public int CompareTo(Conta? other)
+    {
+        if (other == null) return 1;
+        else
+        {
+            return this.Titular.Nome.CompareTo(other.Titular.Nome);
+        }
     }
 }

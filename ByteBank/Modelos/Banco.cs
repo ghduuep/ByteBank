@@ -8,13 +8,14 @@ internal class Banco
 
     public void ExibirContasCadastradas()
     {
+        contasCadastradas.Sort();
         foreach (var conta in contasCadastradas)
         {
             Console.WriteLine($"Agência: {conta.Agencia}");
             Console.WriteLine($"Número: {conta.Numero}");
             Console.WriteLine($"Títular: {conta.Titular.Nome}");
             Console.WriteLine($"Saldo: R${conta.Saldo}");
-            Console.WriteLine($"Tipo de conta: {(conta is ContaPoupanca ? "Poupança" : "Corrente")}");
+            Console.WriteLine($"Tipo de conta: {(conta is ContaPoupanca ? "Poupança" : "Corrente")}\n");
         }
     }
     public void AdicionarConta(Conta conta)

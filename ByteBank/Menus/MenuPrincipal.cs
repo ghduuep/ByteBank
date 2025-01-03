@@ -18,6 +18,7 @@ internal class MenuPrincipal : Menu
 
     public override void Executar(Banco banco)
     {
+        base.Executar(banco);
         ExibirLogo();
         Console.WriteLine("\n1 - Criar conta");
         Console.WriteLine("2 - Realizar saque");
